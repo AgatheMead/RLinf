@@ -171,6 +171,9 @@ class MultiStepRolloutWorker(Worker):
                 expert_model_dict = torch.load(self.cfg.runner.expert_ckpt_path)
                 self.expert_model.load_state_dict(expert_model_dict)
 
+        if not self.enable_offload:
+            self.reload_model()
+
         self.hf_model.eval()
         if self.expert_model is not None:
             self.expert_model.eval()

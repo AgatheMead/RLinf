@@ -14,6 +14,12 @@ dist
 logs/*
 logs_baseline/*
 outputs/*
+# Locally downloaded model weights and checkpoints
+models/
+*.safetensors
+*.ckpt
+*.pth
+*.pt
 *.so
 .venv
 .docs-venv
